@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lectura Mágica ✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="confetti"></div>
+
+<button id="theme-toggle" class="theme-btn" onclick="toggleDark()" title="Cambiar tema">🌙</button>
+
+<!-- ══════════ WELCOME ══════════ -->
+<div class="screen active" id="welcome-screen">
+  <div class="clouds">
+    <div class="cloud" style="left:-100px">☁️</div>
+    <div class="cloud" style="left:-180px">☁️</div>
+    <div class="cloud" style="left:-240px">☁️</div>
+  </div>
+  <div class="mascot-wrap">
+    <span class="mascot">🦊</span>
+    <span class="mascot-sparkle">✨</span>
+  </div>
+  <div class="app-title">Lectura<br>Mágica</div>
+  <p class="app-tagline">¡Aprende a leer con Foxy! 📖</p>
+  <div class="float-row">
+    <span class="fe">📚</span><span class="fe">⭐</span>
+    <span class="fe">🎉</span><span class="fe">🌈</span><span class="fe">🦋</span>
+  </div>
+  <button class="btn-start" onclick="go('levels')">¡Jugar! 🎮</button>
+</div>
+
+<!-- ══════════ LEVELS ══════════ -->
+<div class="screen" id="levels-screen">
+  <h1 class="screen-h">🗺️ ¡Elige tu nivel!</h1>
+  <div class="stars-banner">
+    <span class="sb-star">⭐</span>
+    <div class="sb-text">
+      <div class="sb-count" id="total-stars">0 / 15 estrellas</div>
+      <div class="sb-sub">¡Colecciona todas las estrellas!</div>
+    </div>
+    <span class="sb-star" style="animation-delay:1s">🏆</span>
+  </div>
+  <div class="levels-grid" id="levels-grid"></div>
+  <button class="btn-back" onclick="go('welcome')">🏠 Inicio</button>
+</div>
+
+<!-- ══════════ READING ══════════ -->
+<div class="screen" id="reading-screen">
+  <div class="topbar">
+    <button class="icon-btn" onclick="go('levels')">⬅️</button>
+    <div class="level-pill" id="r-pill">Nivel 1</div>
+    <button class="icon-btn" onclick="speakStory()" id="hint-btn">💡</button>
+  </div>
+  <div class="prog-track"><div class="prog-fill" id="r-prog" style="width:12%"></div></div>
+  <div class="storybook">
+    <div class="book-header">
+      <span class="book-illo" id="b-illo">🐶</span>
+      <div class="book-title" id="b-title">Título</div>
+    </div>
+    <div class="book-body" id="b-body"></div>
+  </div>
+  <div class="read-actions">
+    <button class="btn-speak" id="btn-speak" onclick="speakStory()">🔊 Escuchar</button>
+    <button class="btn-quiz" onclick="startQuiz()">🤔 Responder ➡️</button>
+  </div>
+</div>
+
+<!-- ══════════ QUIZ ══════════ -->
+<div class="screen" id="quiz-screen">
+  <div class="topbar">
+    <button class="icon-btn" id="q-back">⬅️</button>
+    <div class="level-pill" id="q-pill">Preguntas</div>
+    <div style="width:50px"></div>
+  </div>
+  <div class="prog-track"><div class="prog-fill" id="q-prog" style="width:0%"></div></div>
+  <div class="qcard">
+    <div class="q-num" id="q-num">Pregunta 1 de 3</div>
+    <div class="q-text" id="q-text">¿Cuál es la pregunta?</div>
+    <div class="ans-grid" id="ans-grid"></div>
+  </div>
+</div>
+
+<!-- ══════════ RESULTS ══════════ -->
+<div class="screen" id="results-screen">
+  <div class="rcard">
+    <div class="r-emoji" id="r-emoji">🎉</div>
+    <div class="r-title" id="r-title">¡Genial!</div>
+    <div class="r-stars" id="r-stars"></div>
+    <div class="r-detail" id="r-detail">3 de 3 correctas</div>
+    <div class="r-actions">
+      <button class="btn-n pri" id="btn-next">¡Siguiente nivel! ➡️</button>
+      <button class="btn-n sec" onclick="go('levels')">🗺️ Ver niveles</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
